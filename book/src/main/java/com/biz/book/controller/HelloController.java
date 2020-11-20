@@ -35,12 +35,12 @@ public class HelloController {
 		return "home";
 	}
 
-	@ResponseBody
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public List<BookVO> getList() {
-		List<BookVO> bookList = bookService.selectAll();
+	@RequestMapping(value = "/car", method = RequestMethod.GET)
+	public String car(Model model) {
+		BookVO bookVO = BookVO.builder().title("자바야 놀자").author("홍길동").comp("우리동네서점").build();
+		model.addAttribute("BOOK", bookVO);
 
-		return bookList;
+		return "book/list-ex";
 	}
 
 }

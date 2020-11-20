@@ -43,8 +43,8 @@ public class BookServiceImplV1 implements BookService {
     public BookVO findById(Long id) {
         Optional<BookVO> bookVO = bookDao.findById(id);
         // 만약 findById()를 수행하여 데이터가 존재하지 않으면 새로운 VO를 만들고 id값을 -1로 setting하여 return하라
-        return bookVO.orElse(BookVO.builder().id(-1L).build());
-        // return bookVO.get() : wrapper class의 wrap만 벗겨낸 간단한 형태
+        // return bookVO.orElse(BookVO.builder().id(-1L).build());
+        return bookVO.get();     // wrapper class의 wrap만 벗겨낸 간단한 형태
     }
 
     @Override
