@@ -9,6 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 @Entity
 @Table(name="tbl_book")
 public class BookVO {
@@ -27,7 +28,9 @@ public class BookVO {
     @Column(length = 125)
     private String comp;
 
-    @Column(length = 125)
+    /*
+     숫자를 입력하는 변수의 경우, 입력값이 0인지 null인지 구분을 해야할 필요가 있다면 Wrapper class Integer형으로 선언한다.
+     */
+    @Column(nullable = true)
     private int price;
-
 }
