@@ -21,10 +21,11 @@ public class HelloController {
 		this.bookService = bookService;
 	}
 
-	@ResponseBody
+//	@ResponseBody
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String Hello() {
-		return "Hello Spring-boot web Application";
+//		return "Hello Spring-boot web Application";
+		return "home";
 	}
 	
 	@RequestMapping(value="/home", method=RequestMethod.GET)

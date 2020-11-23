@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <style>
     * {
         box-sizing: border-box;
@@ -10,6 +15,10 @@
         color: white;
         text-align: center;
         padding-top: 3rem;
+    }
+
+    header.main-header p {
+        margin: 0;
     }
 
     nav.main-nav {
@@ -33,6 +42,21 @@
         text-decoration: line-through;
     }
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector("nav.main-nav ul").addEventListener("click", function(e) {
+            const text = e.target.firstChild.nodeValue      // LI tag의 문자열 추출
+            const className = e.target.className
+            if(text === "home") {
+                document.location.href = "/"
+            } else if(className === "nav-book") {
+                document.location.href = "/book/list"
+            } else {
+                alert(text + " : " + className)
+            }
+        })
+    })
+</script>
 
 <header class="main-header">
     <h2>BOOK 2020</h2>
@@ -40,8 +64,8 @@
 </header>
 <nav class="main-nav">
     <ul>
-        <li>home</li>
-        <li>book info</li>
-        <li>free</li>
+        <li class="nav-home">home</li>
+        <li class="nav-book">book info</li>
+        <li class="nav-bbs">free</li>
     </ul>
 </nav>
